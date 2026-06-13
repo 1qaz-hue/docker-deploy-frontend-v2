@@ -1,0 +1,7 @@
+﻿services:
+  frontend: 
+    image: 1g2g3g4g/lab11-frontend:latest 
+    pull_policy: always 
+    ports: 
+      - "8081:80" 
+    restart: unless-stopped

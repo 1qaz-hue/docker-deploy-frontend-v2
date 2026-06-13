@@ -1,0 +1,24 @@
+﻿name: Build Push Frontend Docker Image
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
+
+      - name: Login Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PAT }}
+
+      - name: Build & Push Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: 1g2g3g4g/lab11-frontend:latest
