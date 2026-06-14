@@ -21,6 +21,3 @@ jobs:
           context: .
           push: true
           tags: 1g2g3g4g/lab11-frontend:latest
-
-      - name: Initialize DeepSource
-        uses: deepsource-dev/gh-action@main
