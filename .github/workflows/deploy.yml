@@ -21,3 +21,6 @@ jobs:
           context: .
           push: true
           tags: 1g2g3g4g/lab11-frontend:latest
+
+      - name: DeepSource Code Security Scan
+        uses: deepsource-dev/deepsource-action@latest
