@@ -21,16 +21,3 @@ jobs:
           context: .
           push: true
           tags: 1g2g3g4g/lab11-frontend:latest
-
-      # 新增AWS远程部署步骤
-      - name: Deploy to AWS EC2
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_SERVER }}
-          username: ${{ secrets.HOST_USER_NAME }}
-          key: ${{ secrets.HOST_SSH_PRIVATE_KEY }}
-          script: |
-            docker pull 1g2g3g4g/lab11-frontend:latest
-            docker stop frontend || true
-            docker rm frontend || true
-            docker run -d --name frontend -p 80:80 1g2g3g4g/lab11-frontend:latest
